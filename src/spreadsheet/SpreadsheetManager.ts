@@ -59,6 +59,11 @@ export class SpreadsheetManager {
     return rows;
   }
 
+  async saveRows(rows: GoogleSpreadsheetRow[]) {
+    const saveOperations = rows.map((row) => row.save());
+    await Promise.all(saveOperations);
+  }
+
   async addMapping(merchantName: string, category: string) {
     const mapSheet = await this.loadSheet(SHEET_NAMES.MAP);
 
