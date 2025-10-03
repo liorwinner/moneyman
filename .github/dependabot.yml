@@ -4,11 +4,30 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    groups:
+      github-actions-updates:
+        patterns:
+          - "*"
 
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "daily"
+    groups:
+      development-dependencies:
+        dependency-type: "development"
+      kusto:
+        patterns:
+          - "azure-kusto*"
+      google:
+        patterns:
+          - "google*"
+      infra-packages:
+        patterns:
+          - "debug"
+          - "async"
+          - "zod"
+          - "glob"
 
   - package-ecosystem: "docker"
     directory: "/"
